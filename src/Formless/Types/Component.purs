@@ -18,7 +18,6 @@ import Formless.Types.Form (FormField, InputField, InputFunction, OutputField, U
 import Formless.Validation (Validation)
 import Type.Row (type (+))
 import Halogen as H
-import Halogen.HTML as HH
 import Halogen.Query.ChildQuery (ChildQueryBox)
 import Halogen.Query.HalogenM (ForkId)
 
@@ -100,7 +99,7 @@ type Query' form = Query form (Const Void) ()
 
 -- | The component type
 type Component form query slots input msg m =
-  H.Component HH.HTML (Query form query slots) input msg m
+  H.Component (Query form query slots) input msg m
 
 -- | A simple component type when the component does not need extension
 type Component' form input m =
